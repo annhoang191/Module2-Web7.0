@@ -1,0 +1,56 @@
+/*Tag selector*/
+p {
+  color:red;
+}
+
+h1 {
+  text-decoration: underline;
+}
+/*ID selector. not recommended*/
+#blue_background {
+  background: deepskyblue;
+  width: 300px;
+}
+/*Class selector*/
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: bold;
+}
+/*Attribute selector*/
+[href] {
+  font-size: 60px;
+}
+
+[target='_blank'] {
+  color:green;
+}
+/*----------------------------*/
+ul li {
+  text-decoration: line-through;
+}
+
+p > a {
+  font-family:"Comic Sans MS";
+}
+
+.foo > a {
+  font-family:sans-serif;
+}
+
+p:hover {
+  background:yellow;
+}
+
+a:active {
+  color:magenta;
+}
+
+input:focus {
+  border: 5px dashed #ff00ff;
+  border-radius: 3px;
+  outline: 0 none;
+}
+/*Display*/
