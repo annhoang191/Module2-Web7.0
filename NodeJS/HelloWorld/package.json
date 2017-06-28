@@ -2,12 +2,12 @@
   "name": "firstapp",
   "version": "1.0.0",
   "main": "firstApp.js",
+  "description": "",
   "scripts": {
     "test": "1"
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3"

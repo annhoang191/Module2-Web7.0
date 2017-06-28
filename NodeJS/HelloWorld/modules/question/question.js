@@ -1,8 +1,9 @@
-//DEFINE ROUTER FOR /question
+/*DEFINE ROUTER FOR /question*/
 //post question : save file
-//get question : get question and display
+//get question : get question and display question form
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 let router = express.Router();
 
@@ -12,8 +13,14 @@ router.get('/', (req,res) => {
 });
 
 router.post('/', (req,res) => {
-  console.log(req.body);
-  res.send('post question');
+  fs.appendFile('./modules/question/question.txt', req.body.question+'\r\n', (err) => {
+    if(err){
+      return console.log(err);
+    }
+    let output = fs.readFileSync('./modules/question/question.txt', 'utf-8');
+    res.send(output);
+  });
 });
+
 
 module.exports = router;
