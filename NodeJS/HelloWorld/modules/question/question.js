@@ -13,10 +13,11 @@ router.get('/', (req,res) => {
 });
 
 router.post('/', (req,res) => {
-  fs.appendFile('./modules/question/question.txt', req.body.question+'\r\n', (err) => {
-    if(err){
+  fs.appendFile('./modules/question/question.txt', req.body.question+'\r\n', (error) => {
+    if(error){
       return console.log(err);
     }
+    console.log("i'm writing");
     let output = fs.readFileSync('./modules/question/question.txt', 'utf-8');
     res.send(output);
   });
