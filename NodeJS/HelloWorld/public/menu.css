@@ -1,26 +1,26 @@
 .menu {
   background: #D5B0AC;
-  color: #402E2A;
   font-weight: bold;
   text-align: center;
 }
-.menu span {
+.menu a {
   display: inline-block;
-  width: 100px;
+  text-decoration: none;
+  color: #402E2A;
+  width: 200px;
   padding-top: 6px;
   padding-bottom: 6px;
 }
-.menu span:hover {
+.menu a:hover {
   background: #9CD08F;
   color:#FFFFFF;
   cursor: pointer;
 }
-/*Styling vertical menu*/
-.menu-vertical {
-  margin-top: 10px;
-  width:100px;
+.question {
+  padding-top:50px;
+  font-size: 20px;
+  text-align: center;
 }
-.menu-vertical span{
-  height:17px;
-  border-bottom: 1px solid #fff5f5;
+.content {
+  margin-top: 50px;
 }

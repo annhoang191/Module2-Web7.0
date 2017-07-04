@@ -1,27 +1,28 @@
-/*DEFINE ROUTER FOR /question*/
-//post question : save file
-//get question : get question and display question form
+const fs      = require('fs');
 const express = require('express');
-const path = require('path');
-const fs = require('fs');
 
 let router = express.Router();
 
-let fileQuestionHtml = path.join(__dirname , '../../public/question.html' );
-router.get('/', (req,res) => {
-  res.sendFile(fileQuestionHtml);
+router.use(express.static('public'));
+
+router.get('/', (req, res) => {
+  res.redirect('/');
 });
 
-router.post('/', (req,res) => {
-  fs.appendFile('./modules/question/question.txt', req.body.question+'\r\n', (error) => {
-    if(error){
-      return console.log(err);
-    }
-    console.log("i'm writing");
-    let output = fs.readFileSync('./modules/question/question.txt', 'utf-8');
-    res.send(output);
+router.get('/:id', (req, res) => {
+  let questionList;
+  try {
+    questionList =
+    JSON.parse(fs.readFileSync('question.json', 'utf-8'));
+  } catch (exception) {
+      console.log(exception);
+      questionList = [];
+  }
+  res.render('result', {
+    question : questionList[req.params.id].content.toString(),
+    yes : questionList[req.params.id].yes,
+    no : questionList[req.params.id].no
   });
 });
-
 
 module.exports = router;

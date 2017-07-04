@@ -2,23 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Menu bar</title>
-    <link rel='stylesheet' type='text/css' href='menu.css'>
+    <title>Random Questions Machine</title>
+    <link rel="stylesheet" type="text/css" href="menu.css">
   </head>
+
   <body>
     <nav class="menu">
-      <span>Item 1</span>
-      <span>Item 2</span>
-      <span>Item 3</span>
-      <span>Item 4</span>
+      <span>Ask</span>
+      <span>Answer</span>
     </nav>
 
-    <nav class="menu menu-vertical">
-      <span>Item 1</span>
-      <span>Item 2</span>
-      <span>Item 3</span>
-      <span>Item 4</span>
-    </nav>
-
+    <div class = "content">
+      <form action="question/:id" method="get">
+        <input type="submit" name="yes" value="yes">
+        <input type="submit" name="no" value="no">
+      </form>
+    </div>
   </body>
 </html>

@@ -1,27 +1,42 @@
-const fs = require('fs');                 //file system
-const express = require('express');
-const questionRouter = require('./modules/question/question.js');
-const menuRouter = require('./modules/menu/menu.js');
-const bodyParser = require('body-parser');
+const fs                = require('fs');
+const express           = require('express');
+const apiRouter         = require('./modules/api/api.js');
+const questionRouter    = require('./modules/question/question.js');
+const askRouter         = require('./modules/ask/ask.js');
+const bodyParser        = require('body-parser');
+const exhbs             = require('express-handlebars');
 
 let app = express();
+let hbs = exhbs.create({});
 
-app.use(bodyParser.urlencoded({ extended : true}));
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended : true}));
+
+//app.engine('handlebars' , hbs.engine);
+app.engine('handlebars', exhbs ({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+app.use('/api', apiRouter);
+app.use('/ask', askRouter);
 app.use('/question', questionRouter);
-app.use('/', menuRouter);
 
-app.get('/redirect', (req,res) => {
-  res.redirect('/question');
-});
-
-app.get('/object', (req,res) => {
-  let testObject = {
-    a : 'test',
-    b : 'abc'
+app.get('/', (req, res) => {
+  let questionList;
+  try {
+    questionList =
+    JSON.parse(fs.readFileSync('question.json', 'utf-8'));
+  } catch (exception) {
+      console.log(exception);
+      questionList = [];
   }
-  res.send(testObject);
+  let random = Math.floor(Math.random()*(questionList.length-1));
+  let result = questionList[random].content.toString();
+  res.render('home', {
+    action : `/api/question/${random}`,
+    question : result
+  });
 });
 
 app.listen(6969, () => {
-  console.log('app is running');
+  console.log('app is running. listening on :6969');
 });
