@@ -1,26 +1,25 @@
-.menu {
-  background: #D5B0AC;
-  font-weight: bold;
-  text-align: center;
-}
-.menu a {
-  display: inline-block;
-  text-decoration: none;
-  color: #402E2A;
-  width: 200px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-}
-.menu a:hover {
-  background: #9CD08F;
-  color:#FFFFFF;
-  cursor: pointer;
+body {
+  padding-top:150px;
 }
 .question {
-  padding-top:50px;
-  font-size: 20px;
+  padding: 40px 15px;
   text-align: center;
 }
-.content {
-  margin-top: 50px;
+.content p {
+  font-size: 30px;
+  margin-bottom: 60px;
+}
+
+.result {
+  font-size: 30px;
+  margin-bottom: 60px;
+}
+a, a:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+.question-page label {
+  font-size : 30px;
+  text-align: left;
+  margin-left: 0;
 }

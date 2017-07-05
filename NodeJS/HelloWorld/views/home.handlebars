@@ -1,7 +1,13 @@
 <div class = "content">
   <p>{{question}}</p>
   <form action="{{action}}" method="post">
-    <input type="submit" name="choiceYes" value="yes">
-    <input type="submit" name="choiceNo" value="no">
+    <div class="row">
+      <div class="col-xs-6">
+        <button type="submit" class="btn btn-primary btn-lg" name="choiceYes" value="yes"><span class="glyphicon glyphicon-thumbs-up"></span>Yes / Trái</button>
+      </div>
+      <div class="col-xs-6">
+        <button type="submit" class="btn btn-danger btn-lg" name="choiceNo" value="yes"><span class="glyphicon glyphicon-thumbs-down"></span>No / Phải</button>
+      </div>
+    </div>
   </form>
 </div>
