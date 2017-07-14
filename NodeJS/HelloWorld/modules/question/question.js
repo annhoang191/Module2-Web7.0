@@ -1,6 +1,6 @@
-const fs      = require('fs');
-const express = require('express');
-
+const fs            = require('fs');
+const express       = require('express');
+const questionModel = require ('./questionSchema.js');
 let router = express.Router();
 
 router.use(express.static('public'));
@@ -9,19 +9,18 @@ router.get('/', (req, res) => {
   res.redirect('/');
 });
 
-router.get('/:id', (req, res) => {
-  let questionList;
-  try {
-    questionList =
-    JSON.parse(fs.readFileSync('question.json', 'utf-8'));
-  } catch (exception) {
-      console.log(exception);
-      questionList = [];
-  }
-  res.render('result', {
-    question : questionList[req.params.id].content.toString(),
-    yes : questionList[req.params.id].yes,
-    no : questionList[req.params.id].no
+router.get('/:id' , (req,res) => {
+  var id = req.params.id;
+  questionModel.findOne({_id : id} , (err,doc) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('result' , {
+        question : doc.content,
+        yes      : doc.yes,
+        no       : doc.no
+      });
+    } //end else
   });
 });
 

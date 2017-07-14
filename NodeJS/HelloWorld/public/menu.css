@@ -9,17 +9,15 @@ body {
   font-size: 30px;
   margin-bottom: 60px;
 }
-
 .result {
   font-size: 30px;
   margin-bottom: 60px;
 }
+.question-page {
+  text-align: left;
+  margin-top:-120px;
+}
 a, a:hover {
   text-decoration: none;
   color: #ffffff;
-}
-.question-page label {
-  font-size : 30px;
-  text-align: left;
-  margin-left: 0;
 }
