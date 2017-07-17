@@ -52,6 +52,6 @@ app.get('/',(req, res) => {
   });
 });
 
-app.listen(6969, () => {
-  console.log('app is running. listening on :6969');
+app.listen((process.env.PORT || 5000), function(){
+  console.log ( 'listening on *:5000');
 });

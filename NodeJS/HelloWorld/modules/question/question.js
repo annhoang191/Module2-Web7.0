@@ -17,8 +17,9 @@ router.get('/:id' , (req,res) => {
     } else {
       res.render('result' , {
         question : doc.content,
-        yes      : doc.yes,
-        no       : doc.no
+        votes    : doc.yes + doc.no,
+        yes      : (doc.yes / (doc.yes + doc.no)*100).toPrecision(4),
+        no       : (doc.no / (doc.yes + doc.no)*100).toPrecision(4),
       });
     } //end else
   });

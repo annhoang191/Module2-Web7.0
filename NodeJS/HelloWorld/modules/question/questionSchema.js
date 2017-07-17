@@ -12,6 +12,6 @@ let questionSchema = new Schema({
   },
   yes : Number,
   no  : Number
-}, {collection: 'questions' });
+}, {collection: 'questions'});
 
 module.exports = mongoose.model('questions' , questionSchema);

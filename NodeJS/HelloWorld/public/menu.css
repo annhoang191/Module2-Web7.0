@@ -5,19 +5,29 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
-.content p {
-  font-size: 30px;
+.content h1 {
   margin-bottom: 60px;
 }
-.result {
-  font-size: 30px;
+.result h1{
   margin-bottom: 60px;
+}
+.result p {
+  font-size:30px;
 }
 .question-page {
   text-align: left;
   margin-top:-120px;
 }
-a, a:hover {
+a, a:hover a:active, a:visited {
   text-decoration: none;
   color: #ffffff;
+}
+.btn-others {
+  margin-top : 50px;
+}
+.result-bar {
+  margin-bottom: 50px;
+}
+.question-no {
+  background: #ce2d21;
 }

@@ -4,7 +4,7 @@
   "main": "firstApp.js",
   "description": "",
   "scripts": {
-    "test": "1"
+    "start": "node firstApp"
   },
   "author": "",
   "license": "ISC",

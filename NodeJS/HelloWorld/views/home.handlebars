@@ -1,13 +1,20 @@
 <div class = "content">
-  <p>{{question}}</p>
+  <h1>{{question}}</h1>
   <form action="{{action}}" method="post">
     <div class="row">
       <div class="col-xs-6">
-        <button type="submit" class="btn btn-primary btn-lg" name="choiceYes" value="yes"><span class="glyphicon glyphicon-thumbs-up"></span>Yes / Trái</button>
+        <button type="submit" class="btn btn-primary btn-lg" name="choices" value="yes">
+          <span class="glyphicon glyphicon-thumbs-up"></span>Yes / Đúng / Trái</button>
       </div>
       <div class="col-xs-6">
-        <button type="submit" class="btn btn-danger btn-lg" name="choiceNo" value="yes"><span class="glyphicon glyphicon-thumbs-down"></span>No / Phải</button>
+        <button type="submit" class="btn btn-danger btn-lg" name="choices" value="no">
+          <span class="glyphicon glyphicon-thumbs-down"></span>No / Không / Phải</button>
       </div>
+    </div>
+
+    <div class="row text-center btn-others">
+      <button type="submit" class="btn btn-default" name="choices" value="result">Kết quả vote</button>
+      <button type="submit" class="btn btn-default" name="choices" value="others">Câu hỏi khác</button>
     </div>
   </form>
 </div>

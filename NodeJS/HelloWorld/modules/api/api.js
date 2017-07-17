@@ -15,10 +15,18 @@ router.post('/question/:id' , (req,res) => {
       console.log(err);
     } else {
       console.log(doc);
-      if(req.body.choiceYes=='yes') {
+      if(req.body.choices=='yes') {
         doc.yes = doc.yes ? doc.yes + 1 : 1;
-      } else {
+      } else if(req.body.choices=='no') {
         doc.no = doc.no ? doc.no + 1 : 1;
+      }
+      else if(req.body.choices =='result') {
+        res.redirect(`/question/${req.params.id}`);
+        return ;
+      }
+      else if(req.body.choices=='others') {
+        res.redirect('/');
+        return;
       }
 
       questionModel.update({_id : req.params.id} ,
